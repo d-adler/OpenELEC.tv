@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. config/options $1
+
+[ -d $BUILD/$PKG_NAME-$PKG_VERSION ] && rm -rf $BUILD/$PKG_NAME-$PKG_VERSION
+
+tar -xzf $SOURCES/$PKG_NAME/lua-$PKG_VERSION.tar.gz -C $BUILD
+mv $BUILD/lua-$PKG_VERSION $BUILD/lua50-$PKG_VERSION
+cp $PKG_DIR/files/lua50-config $BUILD/$PKG_NAME-$PKG_VERSION/config
+
